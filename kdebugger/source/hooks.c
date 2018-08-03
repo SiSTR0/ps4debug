@@ -331,7 +331,7 @@ int install_hooks() {
     // trap_fatal hook
     uint64_t kernbase = get_kbase();
     memcpy((void *)(kernbase + 0xECA92), "\x4C\x89\xE7", 3); // mov rdi, r12
-	write_jmp(kernbase + 0xECA92, (uint64_t)hook_trap_fatal);
+	write_jmp(kernbase + 0xECA95, (uint64_t)hook_trap_fatal);
 
     struct sysent *_proc_list = &sysents[107];
     memset(_proc_list, 0, sizeof(struct sysent));
